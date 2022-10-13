@@ -1,14 +1,20 @@
+import javax.swing.*;
+
 public class Main {
     public static void getEmployeeList(Employee arr[]) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i].toString());
+            if (arr[i] != null) {
+                System.out.println(arr[i].toString());
+            } else continue;
         }
     }
 
     public static float getSalarySpending(Employee arr[]) {
         int totalSalary = 0;
         for (int i = 0; i < arr.length; i++) {
-            totalSalary = totalSalary + arr[i].getSalary();
+            if (arr[i] != null) {
+                totalSalary = totalSalary + arr[i].getSalary();
+            } else continue;
         }
         return totalSalary;
     }
@@ -16,9 +22,11 @@ public class Main {
     public static Employee getMinimalSalaryEmployee(Employee arr[]) {
         Employee minimalSalaryEmployee = new Employee("", 0, 1000000000);
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i].getSalary() < minimalSalaryEmployee.getSalary()) {
-                minimalSalaryEmployee = arr[i];
-            }
+            if (arr[i] != null) {
+                if (arr[i].getSalary() < minimalSalaryEmployee.getSalary()) {
+                    minimalSalaryEmployee = arr[i];
+                }
+            } else continue;
         }
         return minimalSalaryEmployee;
     }
@@ -26,16 +34,20 @@ public class Main {
     public static Employee getMaximalSalaryEmployee(Employee arr[]) {
         Employee maximalSalaryEmployee = new Employee("", 0, 0);
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i].getSalary() > maximalSalaryEmployee.getSalary()) {
-                maximalSalaryEmployee = arr[i];
-            }
+            if (arr[i] != null) {
+                if (arr[i].getSalary() > maximalSalaryEmployee.getSalary()) {
+                    maximalSalaryEmployee = arr[i];
+                }
+            } else continue;
         }
         return maximalSalaryEmployee;
     }
 
     public static void getAllEmployeeFullName(Employee arr[]) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i].getFullName());
+            if (arr[i] != null) {
+                System.out.println(arr[i].getFullName());
+            } else continue;
         }
     }
 
